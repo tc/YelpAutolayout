@@ -51,6 +51,7 @@ class BusinessDetailViewController: UIViewController, UICollectionViewDataSource
                 if let b = self.business {
                     headerView.titleLabel.text = b.name
                     headerView.photoThumbView.setImageWithURL(b.imageURL)
+                    
                 }
                 
                 return headerView

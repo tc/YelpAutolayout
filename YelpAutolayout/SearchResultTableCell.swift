@@ -15,5 +15,10 @@ class SearchResultTableCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var addressLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
+    @IBOutlet weak var categoriesLabel: UILabel!
+    
+    override func awakeFromNib() {
+        titleLabel.preferredMaxLayoutWidth = titleLabel.frame.size.width
+    }
 
 }
