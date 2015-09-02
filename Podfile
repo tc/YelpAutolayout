@@ -1,13 +1,5 @@
 # Uncomment this line to define a global platform for your project
 platform :ios, '8.0'
 
-use_frameworks!
-
-target 'YelpAutolayout' do
-
-end
-
-target 'YelpAutolayoutTests' do
-
-end
-
+pod 'AFNetworking'
+pod 'BDBOAuth1Manager'
