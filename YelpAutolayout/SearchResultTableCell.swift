@@ -19,6 +19,7 @@ class SearchResultTableCell: UITableViewCell {
     
     override func awakeFromNib() {
         titleLabel.preferredMaxLayoutWidth = titleLabel.frame.size.width
+        self.layoutMargins = UIEdgeInsetsZero
+        self.preservesSuperviewLayoutMargins = false
     }
-
 }

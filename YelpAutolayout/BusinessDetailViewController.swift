@@ -15,23 +15,43 @@ class BusinessDetailHeaderView: UICollectionReusableView {
     
 }
 
-class ReviewCell: UICollectionViewCell {
-
-}
-
 class BusinessDetailViewController: UIViewController, UICollectionViewDataSource {
-    var business:Business?
     @IBOutlet weak var collectionView: UICollectionView!
-    
+
+    var business:Business?
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.collectionView?.dataSource = self
+        
+        updateData()
+    }
+    
+    //MARK: Data
+    func updateData() {
+        if let b = self.business {
+            if let i = b.id {                
+                Business.get(i, completion: {
+                    (b: Business!, error: NSError!) -> Void in
+                    self.business = b
+                    self.collectionView.reloadData()
+                })
+            }
+        }
     }
 
-    //MARK - Collection View
+    //MARK: Collection View
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int{
-        return 1
+        if let b = self.business {
+            if let r = b.reviews {
+                return r.count
+            } else {
+                return 0
+            }
+        } else {
+            return 0
+        }
     }
     
     func collectionView(collectionView: UICollectionView,
@@ -51,7 +71,6 @@ class BusinessDetailViewController: UIViewController, UICollectionViewDataSource
                 if let b = self.business {
                     headerView.titleLabel.text = b.name
                     headerView.photoThumbView.setImageWithURL(b.imageURL)
-                    
                 }
                 
                 return headerView
@@ -64,8 +83,11 @@ class BusinessDetailViewController: UIViewController, UICollectionViewDataSource
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier(
-            "ReviewCell", forIndexPath: indexPath) as! UICollectionViewCell
+            "ReviewCell", forIndexPath: indexPath) as! ReviewCollectionCell
 
+        if let r = self.business?.reviews {
+            cell.excerptLabel?.text = r[indexPath.row]
+        }
         
         return cell
     }

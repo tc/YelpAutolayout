@@ -9,6 +9,7 @@
 import UIKit
 
 class Business: NSObject {
+    let id: String?
     let name: String?
     let address: String?
     let imageURL: NSURL?
@@ -16,8 +17,10 @@ class Business: NSObject {
     let distance: String?
     let ratingImageURL: NSURL?
     let reviewCount: NSNumber?
+    let reviews: [String]?
     
     init(dictionary: NSDictionary) {
+        id = dictionary["id"] as? String
         name = dictionary["name"] as? String
         
         let imageURLString = dictionary["image_url"] as? String
@@ -45,7 +48,7 @@ class Business: NSObject {
             }
         }
         self.address = address
-        
+
         let categoriesArray = dictionary["categories"] as? [[String]]
         if categoriesArray != nil {
             var categoryNames = [String]()
@@ -56,6 +59,21 @@ class Business: NSObject {
             categories = ", ".join(categoryNames)
         } else {
             categories = nil
+        }
+        
+        let reviewsArray = dictionary["reviews"] as? [[String:AnyObject]]
+        if reviewsArray != nil {
+            var r:[String] = []
+            
+            for review in reviewsArray!{
+                if (review["excerpt"] != nil) {
+                    r.append(review["excerpt"] as! String)
+                }
+            }
+            
+            reviews = r
+        } else {
+            reviews = []
         }
         
         let distanceMeters = dictionary["distance"] as? NSNumber
@@ -84,7 +102,11 @@ class Business: NSObject {
         }
         return businesses
     }
-    
+
+    class func get(id: String, completion: (Business!, NSError!) -> Void) {
+        YelpClient.sharedInstance.getBusiness(id, completion: completion)
+    }
+
     class func searchWithTerm(term: String, completion: ([Business]!, NSError!) -> Void) {
         YelpClient.sharedInstance.searchWithTerm(term, completion: completion)
     }

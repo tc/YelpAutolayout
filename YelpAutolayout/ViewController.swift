@@ -10,18 +10,17 @@ import UIKit
 
 class ViewController: UIViewController, UISearchBarDelegate, UITableViewDelegate, UITableViewDataSource {
     @IBOutlet weak var tableView: UITableView!
-    var searchBar: UISearchBar!
 
     let yelpClient = YelpClient.sharedInstance
     var businesses:[Business] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        searchBar = UISearchBar()
+        self.tableView.separatorInset = UIEdgeInsetsZero
+        
+        let searchBar = UISearchBar()
         searchBar.delegate = self
         
-        searchBar.sizeToFit()
         navigationItem.titleView = searchBar
    
         self.tableView.delegate = self

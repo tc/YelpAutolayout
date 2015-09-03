@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		53457B638F98A178461FB9C2 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5300D8A21950BCF4A4C93F03 /* libPods.a */; };
 		6525DA531B9763D900C05BBD /* Business.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6525DA521B9763D900C05BBD /* Business.swift */; };
+		6525DA5A1B97B9E000C05BBD /* ReviewCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6525DA591B97B9E000C05BBD /* ReviewCollectionCell.swift */; };
 		653857641B975C2B002C84D4 /* BusinessDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 653857631B975C2B002C84D4 /* BusinessDetailViewController.swift */; };
 		657338821B96091E00012D99 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657338811B96091E00012D99 /* AppDelegate.swift */; };
 		657338841B96091E00012D99 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 657338831B96091E00012D99 /* ViewController.swift */; };
@@ -33,6 +34,7 @@
 /* Begin PBXFileReference section */
 		5300D8A21950BCF4A4C93F03 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		6525DA521B9763D900C05BBD /* Business.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Business.swift; sourceTree = "<group>"; };
+		6525DA591B97B9E000C05BBD /* ReviewCollectionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReviewCollectionCell.swift; sourceTree = "<group>"; };
 		653857631B975C2B002C84D4 /* BusinessDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BusinessDetailViewController.swift; sourceTree = "<group>"; };
 		6573387C1B96091E00012D99 /* YelpAutolayout.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YelpAutolayout.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		657338801B96091E00012D99 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -137,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				65E630F11B965C6A009D3DA3 /* SearchResultTableCell.swift */,
+				6525DA591B97B9E000C05BBD /* ReviewCollectionCell.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -298,6 +301,7 @@
 				657338821B96091E00012D99 /* AppDelegate.swift in Sources */,
 				6525DA531B9763D900C05BBD /* Business.swift in Sources */,
 				65E630F21B965C6A009D3DA3 /* SearchResultTableCell.swift in Sources */,
+				6525DA5A1B97B9E000C05BBD /* ReviewCollectionCell.swift in Sources */,
 				653857641B975C2B002C84D4 /* BusinessDetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
